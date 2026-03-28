@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAWOD CURRY | 下北沢のスリランカカリー</title>
+<meta name="description" content="NAWOD CURRY - Sri Lankan curry in Shimokitazawa, Tokyo. スリランカカリーを下北沢で。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@400;700;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Snipcart E-Commerce -->
+<link rel="preconnect" href="https://app.snipcart.com">
+<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.css" />
+
+<style>
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Space Grotesk', 'Noto Sans JP', sans-serif;
+  background: #0a0a0a;
+  color: #f5f0e8;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ========== LANGUAGE TOGGLE ========== */
+.lang-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  gap: 0;
+  border: 1px solid rgba(245,240,232,0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  background: rgba(10,10,10,0.7);
+}
+.lang-toggle button {
+  background: none;
+  border: none;
+  color: rgba(245,240,232,0.5);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.lang-toggle button.active {
+  background: #d4572a;
+  color: #f5f0e8;
+}
+
+/* ========== NAVIGATION ========== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
+}
+nav.scrolled {
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(10px);
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.15em;
+  color: #d4572a;
+}
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.7);
+  transition: color 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #d4572a;
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: #f5f0e8; }
+.nav-links a:hover::after { width: 100%; }
+
+/* Mobile menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+}
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #f5f0e8;
+  transition: all 0.3s;
+}
+
+/* ========== HERO ========== */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(212,87,42,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(196,155,58,0.1) 0%, transparent 60%);
+}
+.hero-bg-text {
+  position: absolute;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(8rem, 20vw, 20rem);
+  color: rgba(245,240,232,0.02);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  user-select: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 12vw, 10rem);
+  letter-spacing: 0.12em;
+  line-height: 0.9;
+  color: #f5f0e8;
+  margin-bottom: 16px;
+}
+.hero h1 .accent { color: #d4572a; }
+.hero-tagline {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.5);
+  margin-bottom: 8px;
+}
+.hero-tagline-jp {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  color: rgba(245,240,232,0.35);
+  letter-spacing: 0.2em;
+  margin-bottom: 40px;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(245,240,232,0.3);
+  padding: 14px 36px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.hero-cta:hover {
+  background: #d4572a;
+  border-color: #d4572a;
+  transform: translateY(-2px);
+}
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: float 2s ease-in-out infinite;
+}
+.scroll-indicator span {
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.3);
+}
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(212,87,42,0.6), transparent);
+}
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ========== SECTIONS ========== */
+section { padding: 120px 40px; max-width: 1200px; margin: 0 auto; }
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #d4572a;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  margin-bottom: 40px;
+}
+
+/* ========== STORY / ABOUT ========== */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.story-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(245,240,232,0.75);
+  margin-bottom: 20px;
+}
+.story-text .highlight {
+  color: #d4572a;
+  font-weight: 700;
+}
+.story-image {
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, rgba(212,87,42,0.2), rgba(196,155,58,0.1));
+  border: 1px solid rgba(245,240,232,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: rgba(245,240,232,0.1);
+  letter-spacing: 0.1em;
+  position: relative;
+  overflow: hidden;
+}
+.story-image::after {
+  content: 'PHOTO';
+  position: absolute;
+  font-size: 1rem;
+  letter-spacing: 0.3em;
+  color: rgba(245,240,232,0.15);
+  bottom: 20px;
+}
+
+/* ========== MENU ========== */
+.menu-intro {
+  font-size: 1.05rem;
+  color: rgba(245,240,232,0.6);
+  max-width: 600px;
+  margin-bottom: 60px;
+  line-height: 1.8;
+}
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+}
+.menu-card {
+  border: 1px solid rgba(245,240,232,0.08);
+  padding: 40px;
+  position: relative;
+  transition: all 0.3s;
+  background: rgba(245,240,232,0.02);
+}
+.menu-card:hover {
+  border-color: rgba(212,87,42,0.4);
+  transform: translateY(-4px);
+}
+.menu-card-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #d4572a;
+  margin-bottom: 12px;
+}
+.menu-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.menu-card .jp-name {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(245,240,232,0.4);
+  margin-bottom: 16px;
+}
+.menu-card p {
+  font-size: 0.9rem;
+  color: rgba(245,240,232,0.6);
+  line-height: 1.7;
+}
+.menu-card .price {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  color: rgba(245,240,232,0.3);
+}
+
+/* ========== SHOP ========== */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+.shop-card {
+  border: 1px solid rgba(245,240,232,0.08);
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.shop-card:hover {
+  border-color: rgba(212,87,42,0.4);
+  transform: translateY(-4px);
+}
+.shop-card-image {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, rgba(212,87,42,0.15), rgba(196,155,58,0.08));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  color: rgba(245,240,232,0.08);
+  letter-spacing: 0.1em;
+}
+.shop-card-info {
+  padding: 24px;
+}
+.shop-card-info h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.shop-card-info .price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  color: #d4572a;
+}
+.shop-card-info .status {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+.status-available { color: #4CAF50; }
+.status-soldout { color: rgba(245,240,232,0.3); }
+.buy-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 24px;
+  background: #d4572a;
+  color: #f5f0e8;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.buy-btn:hover { background: #b84520; transform: translateY(-2px); }
+.buy-btn:disabled { background: rgba(245,240,232,0.1); color: rgba(245,240,232,0.3); cursor: not-allowed; transform: none; }
+.size-select {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: rgba(245,240,232,0.05);
+  border: 1px solid rgba(245,240,232,0.15);
+  color: #f5f0e8;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  width: 100%;
+  cursor: pointer;
+}
+.size-select option { background: #1a1a1a; }
+
+/* ========== INFO / ACCESS ========== */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+.info-details { display: flex; flex-direction: column; gap: 32px; }
+.info-item {}
+.info-item-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #d4572a;
+  margin-bottom: 8px;
+}
+.info-item-value {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(245,240,232,0.8);
+}
+.info-item-value .jp {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.map-placeholder {
+  aspect-ratio: 1;
+  background: rgba(245,240,232,0.03);
+  border: 1px solid rgba(245,240,232,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+}
+.map-placeholder span {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: rgba(245,240,232,0.2);
+  text-transform: uppercase;
+}
+
+/* ========== EVENTS ========== */
+.events-list { display: flex; flex-direction: column; gap: 24px; }
+.event-card {
+  display: flex;
+  gap: 32px;
+  padding: 32px;
+  border: 1px solid rgba(245,240,232,0.08);
+  align-items: center;
+  transition: all 0.3s;
+}
+.event-card:hover {
+  border-color: rgba(212,87,42,0.3);
+}
+.event-date {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: #d4572a;
+  min-width: 80px;
+  text-align: center;
+}
+.event-date small {
+  display: block;
+  font-size: 0.9rem;
+  color: rgba(245,240,232,0.4);
+}
+.event-info h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+.event-info p { font-size: 0.9rem; color: rgba(245,240,232,0.5); }
+
+/* ========== INSTAGRAM FEED ========== */
+.insta-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.insta-label a {
+  font-size: 0.8rem;
+  color: rgba(245,240,232,0.5);
+  letter-spacing: 0.1em;
+  transition: color 0.3s;
+}
+.insta-label a:hover { color: #d4572a; }
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+}
+.insta-cell {
+  aspect-ratio: 1;
+  background: rgba(245,240,232,0.04);
+  border: 1px solid rgba(245,240,232,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: rgba(245,240,232,0.1);
+  letter-spacing: 0.1em;
+  transition: all 0.3s;
+}
+.insta-cell:hover { background: rgba(212,87,42,0.1); border-color: rgba(212,87,42,0.2); }
+
+/* ========== FOOTER ========== */
+footer {
+  border-top: 1px solid rgba(245,240,232,0.06);
+  padding: 60px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.footer-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.15em;
+  color: rgba(245,240,232,0.15);
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+.footer-links a {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.3);
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: #d4572a; }
+.footer-copy {
+  font-size: 0.7rem;
+  color: rgba(245,240,232,0.15);
+  margin-top: 16px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(10,10,10,0.98);
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    z-index: 1000;
+  }
+  .nav-links.open a { font-size: 1.2rem; }
+  section { padding: 80px 20px; }
+  .story-grid, .info-grid { grid-template-columns: 1fr; gap: 40px; }
+  .insta-grid { grid-template-columns: repeat(3, 1fr); }
+  footer { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .lang-toggle { top: 16px; right: 60px; }
+  .event-card { flex-direction: column; text-align: center; gap: 16px; }
+}
+
+/* ========== UTILITY ========== */
+[data-lang="en"] { display: none; }
+html[lang="en"] [data-lang="en"] { display: block; }
+html[lang="en"] [data-lang="ja"] { display: none; }
+html[lang="en"] [data-lang="ja-inline"] { display: none; }
+html[lang="ja"] [data-lang="en-inline"] { display: none; }
+[data-lang="ja-inline"], [data-lang="en-inline"] { display: inline; }
+</style>
+</head>
+<body>
+
+<!-- Language Toggle -->
+<div class="lang-toggle">
+  <button id="lang-ja" class="active" onclick="setLang('ja')">JP</button>
+  <button id="lang-en" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">NAWOD CURRY</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#story" data-lang="ja-inline">ストーリー</a><a href="#story" data-lang="en-inline">Story</a></li>
+    <li><a href="#menu" data-lang="ja-inline">メニュー</a><a href="#menu" data-lang="en-inline">Menu</a></li>
+    <li><a href="#shop" data-lang="ja-inline">ショップ</a><a href="#shop" data-lang="en-inline">Shop</a></li>
+    <li><a href="#events" data-lang="ja-inline">イベント</a><a href="#events" data-lang="en-inline">Events</a></li>
+    <li><a href="#info" data-lang="ja-inline">アクセス</a><a href="#info" data-lang="en-inline">Access</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="hero-bg-text">SPICE</div>
+  <div class="hero-content">
+    <div class="hero-tagline">Shimokitazawa, Tokyo</div>
+    <h1>NAWOD<br><span class="accent">CURRY</span></h1>
+    <div class="hero-tagline-jp">下北沢のスリランカカリー</div>
+    <a href="#menu" class="hero-cta">
+      <span data-lang="ja-inline">メニューを見る</span>
+      <span data-lang="en-inline">Explore Menu</span>
+      →
+    </a>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- Story -->
+<section id="story">
+  <div class="section-label">Our Story</div>
+  <div class="section-title">
+    <span data-lang="ja-inline">カリーに、魂を。</span>
+    <span data-lang="en-inline">Soul in Every Curry.</span>
+  </div>
+  <div class="story-grid">
+    <div class="story-text">
+      <div data-lang="ja">
+        <p>NAWOD CURRYは、スリランカと日本をカリーでつなぐ、下北沢の小さなカリー屋です。</p>
+        <p>間借りからスタートし、仲間たちの力を借りて<span class="highlight">2024年11月</span>に実店舗をオープン。彫り師が看板を描き、クラフトマンがドアとテーブルを手作りし、アーティストが曼荼羅を描いた — そんな空間です。</p>
+        <p>フジロックへのケータリング出店、スリランカ洪水被災地への募金活動、地元コミュニティとの繋がり。カリーを通じて、人と人をつなぐことが僕たちの願いです。</p>
+        <p>食べてくださった皆様の心の中に、少しでも<span class="highlight">元気のスパイス</span>を感じてもらえるよう、スタッフ一同精進してまいります。</p>
+      </div>
+      <div data-lang="en">
+        <p>NAWOD CURRY is a small Sri Lankan curry shop in Shimokitazawa, connecting Sri Lanka and Japan through spice.</p>
+        <p>We started in a shared kitchen space and opened our own restaurant in <span class="highlight">November 2024</span> — built by hand with friends. A tattoo artist painted our sign, a craftsman built our door and tables, and an artist painted a mandala on our entrance.</p>
+        <p>From catering at Fuji Rock to fundraising for Sri Lanka flood relief, we believe curry can connect people. Every plate carries a piece of our story.</p>
+        <p>We hope every customer leaves with a little <span class="highlight">spice of energy</span> in their heart.</p>
+      </div>
+    </div>
+    <div class="story-image">NAWOD</div>
+  </div>
+</section>
+
+<!-- Menu -->
+<section id="menu">
+  <div class="section-label">Menu</div>
+  <div class="section-title">
+    <span data-lang="ja-inline">本場のスパイス</span>
+    <span data-lang="en-inline">Authentic Spice</span>
+  </div>
+  <div class="menu-intro">
+    <span data-lang="ja-inline">スリランカの伝統的なスパイスと技法で、一皿一皿丁寧に仕上げています。日替わりメニューはInstagramのストーリーでチェック！</span>
+    <span data-lang="en-inline">Each plate is carefully crafted with traditional Sri Lankan spices and techniques. Check our Instagram stories for daily specials!</span>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <div class="menu-card-label">Signature</div>
+      <h3>Sri Lankan Rice & Curry</h3>
+      <div class="jp-name">スリランカライス＆カリー</div>
+      <p data-lang="ja">スリランカの家庭の味をベースに、複数のカリーと副菜をワンプレートで。スパイスの奥深さを体感してください。</p>
+      <p data-lang="en">A one-plate experience featuring multiple curries and sides, rooted in Sri Lankan home cooking. Discover the depth of spice.</p>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-label">Street Food</div>
+      <h3>Kottu</h3>
+      <div class="jp-name">コットゥ</div>
+      <p data-lang="ja">スリランカのストリートフード。ロティを刻んで野菜やスパイスと炒めた、リズミカルで力強い一品。フジロックでも大人気。</p>
+      <p data-lang="en">Sri Lanka's iconic street food — chopped roti stir-fried with vegetables and spices. A crowd favorite at Fuji Rock.</p>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-label">Daily Special</div>
+      <h3>Kimagure Menu</h3>
+      <div class="jp-name">気まぐれメニュー</div>
+      <p data-lang="ja">その日の仕入れとインスピレーションで変わる日替わりメニュー。Instagramストーリーで当日のメニューをチェック。</p>
+      <p data-lang="en">A daily special that changes with the day's inspiration and ingredients. Check our Instagram story for today's offering.</p>
+    </div>
+    <div class="menu-card">
+      <div class="menu-card-label">Drinks</div>
+      <h3>Spice Drinks & Beer</h3>
+      <div class="jp-name">スパイスドリンク＆ビール</div>
+      <p data-lang="ja">スパイスを使ったオリジナルドリンクとビールをご用意。カリーとの相性抜群。</p>
+      <p data-lang="en">Original spice-infused drinks and beer selections, perfectly paired with our curries.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Shop -->
+<section id="shop">
+  <div class="section-label">Shop</div>
+  <div class="section-title">
+    <span data-lang="ja-inline">グッズ</span>
+    <span data-lang="en-inline">Merch</span>
+  </div>
+  <div class="shop-grid">
+    <!-- Product 1: T-shirt (Sold Out) -->
+    <div class="shop-card">
+      <div class="shop-card-image">NAWOD TEE</div>
+      <div class="shop-card-info">
+        <h3>2024 NAWOD CURRY Tシャツ</h3>
+        <div class="price">¥5,900</div>
+        <div class="status status-soldout">SOLD OUT</div>
+        <button class="buy-btn" disabled>SOLD OUT</button>
+      </div>
+    </div>
+
+    <!-- Product 2: 2026 Tee (Example with Snipcart) -->
+    <div class="shop-card">
+      <div class="shop-card-image">NEW TEE 2026</div>
+      <div class="shop-card-info">
+        <h3>2026 NAWOD CURRY Tシャツ</h3>
+        <div class="price">¥6,500</div>
+        <div class="status status-available">IN STOCK</div>
+        <select class="size-select" id="tee-size">
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L" selected>L</option>
+          <option value="XL">XL</option>
+          <option value="XXL">XXL</option>
+        </select>
+        <button class="snipcart-add-item buy-btn"
+          data-item-id="nawod-tee-2026"
+          data-item-price="6500"
+          data-item-url="/index.html"
+          data-item-name="2026 NAWOD CURRY Tシャツ"
+          data-item-description="Designed by kent (@kent_tattoos). Sri Lankan curry shop tee from Shimokitazawa."
+          data-item-custom1-name="Size"
+          data-item-custom1-options="S|M|L|XL|XXL"
+          data-item-currency="jpy"
+          data-item-weight="200"
+          data-item-quantity="1"
+          data-item-max-quantity="5">
+          <span data-lang="ja-inline">カートに追加</span>
+          <span data-lang="en-inline">ADD TO CART</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Product 3: Spice Set -->
+    <div class="shop-card">
+      <div class="shop-card-image">SPICE SET</div>
+      <div class="shop-card-info">
+        <h3 data-lang="ja-inline">NAWODスパイスセット</h3>
+        <h3 data-lang="en-inline">NAWOD Spice Set</h3>
+        <div class="price">¥3,200</div>
+        <div class="status status-available">IN STOCK</div>
+        <button class="snipcart-add-item buy-btn"
+          data-item-id="nawod-spice-set"
+          data-item-price="3200"
+          data-item-url="/index.html"
+          data-item-name="NAWOD Spice Set"
+          data-item-description="Authentic Sri Lankan spice blend from NAWOD CURRY, Shimokitazawa."
+          data-item-currency="jpy"
+          data-item-weight="300"
+          data-item-quantity="1"
+          data-item-max-quantity="3">
+          <span data-lang="ja-inline">カートに追加</span>
+          <span data-lang="en-inline">ADD TO CART</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Snipcart cart summary button -->
+  <div style="text-align: center; margin-top: 40px;">
+    <button class="snipcart-checkout hero-cta" style="border-color: #d4572a; color: #d4572a;">
+      <span data-lang="ja-inline">カートを見る</span>
+      <span data-lang="en-inline">View Cart</span>
+      (<span class="snipcart-items-count">0</span>)
+    </button>
+  </div>
+</section>
+
+<!-- Events -->
+<section id="events">
+  <div class="section-label">Events & Catering</div>
+  <div class="section-title">
+    <span data-lang="ja-inline">イベント</span>
+    <span data-lang="en-inline">Events</span>
+  </div>
+  <div class="events-list">
+    <div class="event-card">
+      <div class="event-date">2025<small>SUMMER</small></div>
+      <div class="event-info">
+        <h3>FUJI ROCK FESTIVAL 2025</h3>
+        <p data-lang="ja-inline">オアシスエリアにて出店。怒涛の66時間営業。コットゥを中心にスリランカフードを提供。</p>
+        <p data-lang="en-inline">66 hours of non-stop Sri Lankan food at the Oasis Area. Kottu was the star of the show.</p>
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="event-date">2025<small>WINTER</small></div>
+      <div class="event-info">
+        <h3>RAPSTAR 2025 FINALS @ STARZ</h3>
+        <p data-lang="ja-inline">ケータリングで参加。アーティストの皆さんにスリランカのパンチラインを届けました。</p>
+        <p data-lang="en-inline">Catering for the RAPSTAR finals — delivering Sri Lankan punchlines to the hip-hop scene.</p>
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="event-date">
+        <span data-lang="ja-inline" style="font-size:1.2rem;">随時</span>
+        <span data-lang="en-inline" style="font-size:1.2rem;">ANYTIME</span>
+      </div>
+      <div class="event-info">
+        <h3 data-lang="ja-inline">ケータリング受付中</h3>
+        <h3 data-lang="en-inline">Catering Available</h3>
+        <p data-lang="ja-inline">山の中、川の中、どこでも行きます。イベント関係者の皆様、DMお待ちしております。</p>
+        <p data-lang="en-inline">Mountains, rivers, anywhere — we'll bring the curry. DM us on Instagram for bookings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Info / Access -->
+<section id="info">
+  <div class="section-label">Access</div>
+  <div class="section-title">
+    <span data-lang="ja-inline">お店情報</span>
+    <span data-lang="en-inline">Visit Us</span>
+  </div>
+  <div class="info-grid">
+    <div class="info-details">
+      <div class="info-item">
+        <div class="info-item-label">Address</div>
+        <div class="info-item-value">
+          <span class="jp">東京都世田谷区北沢2-14-8<br>春日ビル4F</span><br>
+          <span style="font-size:0.85rem; color:rgba(245,240,232,0.5);" data-lang="ja-inline">ファミリーマート下北沢駅南店さん右手階段</span>
+          <span style="font-size:0.85rem; color:rgba(245,240,232,0.5);" data-lang="en-inline">4F Kasuga Bldg, 2-14-8 Kitazawa, Setagaya-ku, Tokyo<br>Stairs to the right of FamilyMart (south exit)</span>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-item-label">Hours</div>
+        <div class="info-item-value">
+          <span data-lang="ja-inline">
+            ランチ 11:30〜15:00（L.O.）<br>
+            ディナー 17:30〜22:00（L.O.）<br>
+            <span style="color:#d4572a;">水曜定休</span><br>
+            <span style="font-size:0.85rem; color:rgba(245,240,232,0.4);">※火曜日は 11:30〜15:00（L.O.）のみ</span>
+          </span>
+          <span data-lang="en-inline">
+            Lunch 11:30–15:00 (L.O.)<br>
+            Dinner 17:30–22:00 (L.O.)<br>
+            <span style="color:#d4572a;">Closed Wednesdays</span><br>
+            <span style="font-size:0.85rem; color:rgba(245,240,232,0.4);">※ Tuesdays: Lunch only (11:30–15:00)</span>
+          </span>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-item-label">Social</div>
+        <div class="info-item-value">
+          <a href="https://www.instagram.com/nawodcurry/" target="_blank" style="color:#d4572a; border-bottom: 1px solid rgba(212,87,42,0.3);">
+            @nawodcurry
+          </a>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-item-label">
+          <span data-lang="ja-inline">スリランカ支援</span>
+          <span data-lang="en-inline">Sri Lanka Relief</span>
+        </div>
+        <div class="info-item-value" style="font-size:0.9rem; color:rgba(245,240,232,0.6);">
+          <span data-lang="ja-inline">店内に募金箱を設置しています。売上の一部もスリランカ被災地支援に寄付しています。</span>
+          <span data-lang="en-inline">We have a donation box in the shop and donate a portion of our sales to Sri Lanka flood relief efforts.</span>
+        </div>
+      </div>
+    </div>
+    <div class="map-placeholder" style="padding:0; overflow:hidden;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d810.2!2d139.6665!3d35.6612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f34668e8e37b%3A0x0!2z5p2x5Lqs6YO95LiW55Sw6LC35Yy65YyX5rKiMi0xNC044Gk5piF5pel44OT44OrNEY!5e0!3m2!1sja!2sjp!4v1"
+        width="100%"
+        height="100%"
+        style="border:0; min-height: 400px; filter: invert(90%) hue-rotate(180deg) brightness(0.8) contrast(1.2);"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Instagram Feed -->
+<section id="instagram" style="padding-top: 60px;">
+  <div class="insta-label">
+    <div class="section-label" style="margin-bottom:0;">Instagram</div>
+    <a href="https://www.instagram.com/nawodcurry/" target="_blank">@nawodcurry →</a>
+  </div>
+  <!-- Instagram Feed Container - populated by JS -->
+  <div class="insta-grid" id="insta-feed">
+    <!-- Fallback: static placeholder cells shown until API loads -->
+    <a href="https://www.instagram.com/nawodcurry/" target="_blank" class="insta-cell" style="grid-column: span 6; text-align:center; padding: 40px; aspect-ratio: auto;">
+      <span data-lang="ja-inline" style="font-size: 0.9rem; color: rgba(245,240,232,0.4);">Instagramで最新の投稿をチェック →</span>
+      <span data-lang="en-inline" style="font-size: 0.9rem; color: rgba(245,240,232,0.4);">See our latest posts on Instagram →</span>
+    </a>
+  </div>
+
+  <!-- Alternative: Elfsight or Behold embed widget (no-code option) -->
+  <!-- To use Behold (free, no API key needed for public profiles):
+       1. Go to https://behold.so
+       2. Create a free widget for @nawodcurry
+       3. Replace the div above with the embed code they provide
+  -->
+
+  <!-- Or use the Instagram Basic Display API (requires Meta developer setup):
+       See SETUP.md for full instructions on connecting the Instagram API
+  -->
+</section>
+
+<!-- Footer -->
+<footer>
+  <div>
+    <div class="footer-brand">NAWOD CURRY</div>
+    <div class="footer-copy">© 2026 NAWOD CURRY. Shimokitazawa, Tokyo.</div>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/nawodcurry/" target="_blank">Instagram</a>
+    <a href="https://nawodcurry.base.shop/" target="_blank">BASE Shop</a>
+    <a href="https://nawodcurry.base.shop/privacy" target="_blank">Privacy</a>
+  </div>
+</footer>
+
+<script>
+// Language switching
+function setLang(lang) {
+  document.documentElement.lang = lang;
+  document.getElementById('lang-ja').classList.toggle('active', lang === 'ja');
+  document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+  localStorage?.setItem?.('nawod-lang', lang);
+}
+
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ========== INSTAGRAM FEED (Basic Display API) ==========
+// After setting up Meta Developer App (see SETUP.md), replace this token:
+const INSTAGRAM_TOKEN = 'YOUR_INSTAGRAM_ACCESS_TOKEN';
+
+async function loadInstagramFeed() {
+  if (INSTAGRAM_TOKEN === 'YOUR_INSTAGRAM_ACCESS_TOKEN') return; // Skip if not configured
+
+  try {
+    const res = await fetch(
+      `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url&limit=6&access_token=${INSTAGRAM_TOKEN}`
+    );
+    const data = await res.json();
+    if (!data.data) return;
+
+    const container = document.getElementById('insta-feed');
+    container.innerHTML = '';
+
+    data.data.forEach(post => {
+      const imgUrl = post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url;
+      const cell = document.createElement('a');
+      cell.href = post.permalink;
+      cell.target = '_blank';
+      cell.rel = 'noopener';
+      cell.className = 'insta-cell';
+      cell.style.cssText = `
+        background: url(${imgUrl}) center/cover no-repeat;
+        aspect-ratio: 1;
+      `;
+      cell.title = (post.caption || '').substring(0, 100);
+      container.appendChild(cell);
+    });
+  } catch (err) {
+    console.log('Instagram feed not loaded:', err.message);
+  }
+}
+
+loadInstagramFeed();
+</script>
+
+<!-- Snipcart E-Commerce Engine -->
+<!-- IMPORTANT: Replace data-api-key with your Snipcart public API key (see SETUP.md) -->
+<div hidden id="snipcart"
+  data-api-key="YOUR_SNIPCART_PUBLIC_API_KEY"
+  data-config-modal-style="side"
+  data-currency="jpy"
+  data-config-add-product-behavior="none">
+</div>
+<script async src="https://cdn.snipcart.com/themes/v3.7.1/default/snipcart.js"></script>
+
+</body>
+</html>
